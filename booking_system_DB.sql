@@ -1,12 +1,6 @@
-drop edunovawp2;
-
---use master;
-
 create database booking_system;
 
 use booking_system;
-
-drop table gost;
 
 create table gost (
 id int not null primary key identity(1,1),
