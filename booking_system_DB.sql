@@ -14,8 +14,8 @@ create table gost (
 	grupa int not null
 );
 
-create table grupa (
-	id int not null primary key identity(1,1),
+create table gost_rezervacija (
+	gost int not null,
 	rezervacija int not null
 );
 
@@ -30,16 +30,11 @@ create table cjenik (
 	id int not null primary key identity(1,1),
 	datum datetime not null,
 	cijena decimal (18,2) not null,
-	rezervirano bit not null
 );
 
-alter table gost add foreign key (grupa) references grupa(id);
-alter table grupa add foreign key (rezervacija) references rezervacija(id);
+alter table gost_rezervacija add foreign key (gost) references gost(id);
+alter table gost_rezervacija add foreign key (rezervacija) references rezervacija(id);
 
-insert into grupa (rezervacija) values
-	('001'),
-	('002'),
-	('003');
 
 insert into gost (Ime, Prezime, oib, grupa) values
 	('Marko','Marković','41455400679','001'),
@@ -51,14 +46,11 @@ insert into rezervacija (cijena, datum_od, datum_do) values
 	('256.56','2023-06-25','2023-07-02'),
 	('256.56','2023-06-25','2023-07-02');
 
-insert into cjenik (datum, cijena, rezervirano) values
-	('2023-07-02','256.56','1'),
-	('2023-07-05','180.58','1'),
-	('2023-07-15','150.00','0');
+insert into cjenik (datum, cijena) values
+	('2023-07-02','256.56'),
+	('2023-07-05','180.58'),
+	('2023-07-15','150.00');
 
-select a.ime, a.prezime, b.rezervacija
-from gost a inner join grupa b
-on a.grupa = b.id;
 
 
 
