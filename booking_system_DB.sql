@@ -5,7 +5,7 @@ drop database booking_system;
 create database booking_system;
 
 use booking_system;
---kreiranje tablica
+
 create table gost (
 id int not null primary key identity(1,1),
 ime varchar (50)not null,
@@ -32,10 +32,10 @@ datum datetime not null,
 cijena decimal (18,2) not null,
 rezervirano bit not null
 );
---povezivanje tablica
+
 alter table gost add foreign key (grupa) references grupa(id);
 alter table grupa add foreign key (rezervacija) references rezervacija(id);
---dodavanje vrijednosti tablicama
+
 insert into grupa (rezervacija) values
 ('001'),
 ('002'),
@@ -55,7 +55,7 @@ insert into cjenik (datum, cijena, rezervirano) values
 ('2023-07-02','256.56','1'),
 ('2023-07-05','180.58','1'),
 ('2023-07-15','150.00','0');
---spajanje tablica
+
 select a.ime, a.prezime, b.rezervacija
 from gost a inner join grupa b
 on a.grupa = b.id;
