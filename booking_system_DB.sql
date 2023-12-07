@@ -10,8 +10,7 @@ create table gost (
 	id int not null primary key identity(1,1),
 	ime varchar (50)not null,
 	prezime varchar (50)not null,
-	oib varchar (11)not null,
-	grupa int not null
+	oib varchar (11)not null
 );
 
 create table gost_rezervacija (
@@ -36,10 +35,10 @@ alter table gost_rezervacija add foreign key (gost) references gost(id);
 alter table gost_rezervacija add foreign key (rezervacija) references rezervacija(id);
 
 
-insert into gost (Ime, Prezime, oib, grupa) values
-	('Marko','Marković','41455400679','001'),
-	('Petar','Perić','66164136372','002'),
-	('Ana','Horvat','06636100164','003');
+insert into gost (Ime, Prezime, oib) values
+	('Marko','Marković','41455400679'),
+	('Petar','Perić','66164136372'),
+	('Ana','Horvat','06636100164');
 
 insert into rezervacija (cijena, datum_od, datum_do) values
 	('256.56','2023-06-25','2023-07-02'),
@@ -50,6 +49,18 @@ insert into cjenik (datum, cijena) values
 	('2023-07-02','256.56'),
 	('2023-07-05','180.58'),
 	('2023-07-15','150.00');
+
+insert into gost_rezervacija (gost, rezervacija) values
+	('1','1'),
+	('2','2'),
+	('3','3'),
+	('3','1');
+
+	select * from rezervacija;
+	select * from gost;
+	select * from cjenik;
+	select * from gost_rezervacija;
+
 
 
 
