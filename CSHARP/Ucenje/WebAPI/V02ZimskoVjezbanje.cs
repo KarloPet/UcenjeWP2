@@ -91,7 +91,7 @@ namespace WebAPI.Controllers
         [Route("Zad6")]
         public int[] Zad6(int ManjiBroj, int VeciBroj)//6. Ruta prima dva parametra koji su cijeli brojevi i vra?a niz s svim neparnim brojevima izme?u primljenih brojeva
         {
-            int[] Niz = new int[VeciBroj / 2];
+            int[] Niz = new int[(VeciBroj - ManjiBroj +1 ) / 2]; 
             int Index = 0;
 
             for (int i = ManjiBroj; i <= VeciBroj; i++)
@@ -99,7 +99,7 @@ namespace WebAPI.Controllers
 
                 if (i % 2 != 0)
                 {
-                    Niz[Index++] = i;
+                    Niz[Index++] = i++;
                 }
 
             }
@@ -221,9 +221,43 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("Zad10")]
-        public int Zad10(int Broj1, int Broj2)//10. Ruta prima dva parametra koji su cijeli brojevi i vra?a dvodimenzionalni niz (matricu) koja sadrži tablicu množenja za dva primljena broja
+        public string Matrica2d(int a, int b)
         {
-            return 0;
+            int[] matricaA = new int[10];
+            int[] matricaB = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                matricaA[i] = (i + 1) * a;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                matricaB[i] = (i + 1) * b;
+            }
+
+            string[,] tablica = new string[a, b];
+
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < b; j++)
+                {
+                    tablica[i, j] = ((i + 1) * (j + 1)).ToString();
+                }
+            }
+
+            StringBuilder matricaNiz = new StringBuilder();
+
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < b; j++)
+                {
+                    matricaNiz.Append(tablica[i, j] + "\t");
+                }
+                matricaNiz.AppendLine();
+            }
+            return "Tablica množenja za dva broja" + "\n" + string.Join("\t", matricaA)
+                + "\n" + string.Join("\t", matricaB) + "\n" + "Tablica množenja do dva broja" + "\n" + matricaNiz.ToString();
         }
 
 
