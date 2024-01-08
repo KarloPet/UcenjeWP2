@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
+ï»¿using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 
@@ -71,28 +71,69 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("Zad5")]
-        public int[] Zad5(int ManjiBroj, int VeciBroj) //5. Ruta prima dva parametra koji su cijeli brojevi i vra?a niz s svim parnim brojevima izme?u primljenih brojeva
+        public int[] Zad5(int Broj1, int Broj2) //5. Ruta prima dva parametra koji su cijeli brojevi
+                                                       //i vra?a niz s svim parnim brojevima izme?u primljenih brojeva
         {
-            int[] Niz = new int[VeciBroj / 2];
             int Index = 0;
+            int ManjiBroj = 0;
+            int VeciBroj = 0;
+
+            if (Broj1 > Broj2)
+            {
+                VeciBroj = Broj1;
+                ManjiBroj = Broj2;
+            }
+            else if (Broj1 < Broj2)
+            {
+                VeciBroj = Broj2;
+                ManjiBroj = Broj1;
+            }
+            else
+            {
+                ManjiBroj = Broj1;
+                VeciBroj = Broj2;
+            }
+
+            int[] Niz = new int[(VeciBroj - ManjiBroj + 1) / 2];
 
             for (int i = ManjiBroj; i <= VeciBroj; i++)
             {
 
                 if (i % 2 == 0)
                 {
-                    Niz[Index++] = i;
+                    Niz[Index++] = i++;
                 }
 
             }
             return Niz;
         }
+
         [HttpGet]
         [Route("Zad6")]
-        public int[] Zad6(int ManjiBroj, int VeciBroj)//6. Ruta prima dva parametra koji su cijeli brojevi i vra?a niz s svim neparnim brojevima izme?u primljenih brojeva
+        public int[] Zad6(int Broj1, int Broj2)//6. Ruta prima dva parametra koji su cijeli
+                                                      //brojevi i vra?a niz s svim neparnim brojevima izme?u primljenih brojeva
         {
-            int[] Niz = new int[(VeciBroj - ManjiBroj +1 ) / 2]; 
             int Index = 0;
+            int ManjiBroj = 0;
+            int VeciBroj = 0;
+
+            if (Broj1 > Broj2)
+            {
+                VeciBroj = Broj1;
+                ManjiBroj = Broj2;
+            }
+            else if (Broj1 < Broj2)
+            {
+                VeciBroj = Broj2;
+                ManjiBroj = Broj1;
+            }
+            else
+            {
+                ManjiBroj = Broj1;
+                VeciBroj = Broj2;
+            }
+
+            int[] Niz = new int[(VeciBroj - ManjiBroj + 1) / 2];
 
             for (int i = ManjiBroj; i <= VeciBroj; i++)
             {
@@ -105,24 +146,11 @@ namespace WebAPI.Controllers
             }
             return Niz;
         }
-        //[HttpGet]
-        //[Route("Zad7")]
-        //public int Zad7(int ManjiBroj, int VeciBroj)
-        //{
-        //    int Zbroj = 0;
-        //    int MB = ManjiBroj;
-        //    int VB = VeciBroj;
-
-        //    for (int i=MB;i <= VB;i++)
-        //    {
-        //        Zbroj += i;
-        //    }
-        //    return Zbroj;
-        //}
 
         [HttpGet]
         [Route("Zad7")]
-        public int Zad7(int Broj1, int Broj2) //7. Ruta prima dva parametra koji su cijeli brojevi i vra?a zbroj svih brojeva izme?u primljenih brojeva
+        public int Zad7(int Broj1, int Broj2) //7. Ruta prima dva parametra koji su cijeli
+                                              //brojevi i vra?a zbroj svih brojeva izme?u primljenih brojeva
         {
             int Zbroj = 0;
             int ManjiBroj = 0;
@@ -154,7 +182,9 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("Zad8")]
-        public int Zad8(int Broj1, int Broj2)//8. Ruta prima dva parametra koji su cijeli brojevi i vra?a zbroj svih brojeva izme?u primljenih brojeva koji su cjelobrojno djeljivi s 3
+        public int Zad8(int Broj1, int Broj2)//8. Ruta prima dva parametra koji su cijeli
+                                             //brojevi i vra?a zbroj svih brojeva izme?u primljenih
+                                             //brojeva koji su cjelobrojno djeljivi s 3
         {
             int Zbroj = 0;
             int ManjiBroj = 0;
@@ -187,7 +217,9 @@ namespace WebAPI.Controllers
         }
         [HttpGet]
         [Route("Zad9")]
-        public int Zad9(int Broj1, int Broj2)//9. Ruta prima dva parametra koji su cijeli brojevi i vra?a zbroj svih brojeva izme?u primljenih brojeva koji su cjelobrojno djeljivi s 3 i 5
+        public int Zad9(int Broj1, int Broj2)//9. Ruta prima dva parametra koji su cijeli brojevi
+                                             //i vra?a zbroj svih brojeva izme?u primljenih brojeva
+                                             //koji su cjelobrojno djeljivi s 3 i 5
         {
             int Zbroj = 0;
             int ManjiBroj = 0;
@@ -221,50 +253,52 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("Zad10")]
-        public string Matrica2d(int a, int b)
+        public string Zad10(int Broj1, int Broj2)//10. Ruta prima dva parametra koji su cijeli brojevi
+                                                 //i vraÄ‡a dvodimenzionalni niz (matricu) koja sadrÅ¾i tablicu
+                                                 //mnoÅ¾enja za dva primljena broja
         {
-            int[] matricaA = new int[10];
-            int[] matricaB = new int[10];
+            int[] Stupac1 = new int[10];
 
             for (int i = 0; i < 10; i++)
             {
-                matricaA[i] = (i + 1) * a;
+                Stupac1[i] = (i + 1) * Broj1; 
             }
+
+            int[] Stupac2 = new int[10];
 
             for (int i = 0; i < 10; i++)
             {
-                matricaB[i] = (i + 1) * b;
+                Stupac2[i] = (i + 1) * Broj2;
             }
 
-            string[,] tablica = new string[a, b];
-
-            for (int i = 0; i < a; i++)
+            string[,] tablica = new string[Broj1, Broj2];
+            for (int i = 0; i < Broj1; i++)
             {
-                for (int j = 0; j < b; j++)
+                for (int j = 0; j < Broj2; j++)
                 {
                     tablica[i, j] = ((i + 1) * (j + 1)).ToString();
                 }
             }
 
-            StringBuilder matricaNiz = new StringBuilder();
+            StringBuilder TablicaNiz = new StringBuilder();
 
-            for (int i = 0; i < a; i++)
+            for (int i = 0; i < Broj1; i++)
             {
-                for (int j = 0; j < b; j++)
+                for (int j = 0; j < Broj1; j++)
                 {
-                    matricaNiz.Append(tablica[i, j] + "\t");
+                    TablicaNiz.Append(tablica[i, j] + "\t");
                 }
-                matricaNiz.AppendLine();
+                TablicaNiz.AppendLine();
             }
-            return "Tablica množenja za dva broja" + "\n" + string.Join("\t", matricaA)
-                + "\n" + string.Join("\t", matricaB) + "\n" + "Tablica množenja do dva broja" + "\n" + matricaNiz.ToString();
+            return TablicaNiz.ToString();
         }
 
 
 
         [HttpGet]
         [Route("Zad11")]
-        public int[] Zad11(int Broj)//11. Ruta prima jedan parametar koji je cijeli broj i vra?a niz cijelih brojeva koji su složeni od primljenog broja do broja 1
+        public int[] Zad11(int Broj)//11. Ruta prima jedan parametar koji je cijeli broj i
+                                    //vra?a niz cijelih brojeva koji su sloÅ¾eni od primljenog broja do broja 1
         {
             int Brojac = 0;
             int[] Niz = new int[Broj];
@@ -277,7 +311,9 @@ namespace WebAPI.Controllers
         }
         [HttpGet]
         [Route("Zad12")]
-        public bool Zad12(int Broj)//12. Ruta prima cijeli broj i vra?a logi?ku istinu ako je primljeni broj prosti (prim - prime) broj, odnosno logi?ku laž ako nije
+        public bool Zad12(int Broj)//12. Ruta prima cijeli broj i
+                                   //vra?a logi?ku istinu ako je primljeni broj
+                                   //prosti (prim - prime) broj, odnosno logi?ku laÅ¾ ako nije
         {
             for (int i = 2; i <= Broj / 2; i++)
             {
@@ -291,11 +327,69 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("Zad13")]
-        public int Zad13(int Broj)//13. Ruta prima dva parametra koji su cijeli brojevi te vra?a dvodimenzionalni niz (matricu) cijelih brojeva koji su složeni prema slici zadatka: Cikli?na matrica
+        public string CiklicnaMatrica(int redovi, int stupac)//13. Ruta prima dva parametra koji su cijeli brojevi te vraÄ‡a dvodimenzionalni
+                                                             //niz (matricu) cijelih brojeva koji su sloÅ¾eni
+                                                             //prema slici zadatka: CikliÄna matrica
         {
+            int[,] matrica = new int[redovi, stupac];
+            int brojac = 1;
+            int redPocetak = 0;
+            int redKraj = redovi - 1;
+            int stuPocetak = 0;
+            int stuKraj = stupac - 1;
 
-            return 0;
+            while (stuPocetak <= redKraj && stuPocetak <= stuKraj)
+            {
 
+
+                // Popuni gornji redak matrice slijeva nadesno.
+                for (int j = stuPocetak; j <= stuKraj; j++)
+                    matrica[redPocetak, j] = brojac++;
+
+                redPocetak++;
+
+                // Popuni desni stupac matrice odozgo prema dolje.
+                for (int i = redPocetak; i <= redKraj; i++)
+                    matrica[i, stuKraj] = brojac++;
+
+                stuKraj--;
+
+                // Provjeri i popuni donji redak matrice zdesna ulijevo.
+                if (redPocetak <= redKraj)
+                {
+                    for (int j = stuKraj; j >= stuPocetak; j--)
+                        matrica[redKraj, j] = brojac++;
+
+                    redKraj--;
+                }
+
+                // Provjeri i popuni lijevi stupac matrice odozdo prema gore.
+                if (stuPocetak <= stuKraj)
+                {
+                    for (int i = redKraj; i >= redPocetak; i--)
+                        matrica[i, stuPocetak] = brojac++;
+
+                    stuPocetak++;
+                }
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < redovi; i++)
+            {
+                for (int j = 0; j < stupac; j++)
+                {
+                    sb.Append(matrica[i, j] + "\t");
+                }
+                sb.AppendLine();
+            }
+
+            return sb.ToString();
         }
+
+
+
+
+
     }
 }
