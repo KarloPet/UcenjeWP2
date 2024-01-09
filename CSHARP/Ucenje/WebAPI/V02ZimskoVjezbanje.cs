@@ -284,7 +284,7 @@ namespace WebAPI.Controllers
 
             for (int i = 0; i < Broj1; i++)
             {
-                for (int j = 0; j < Broj1; j++)
+                for (int j = 0; j < Broj2; j++)
                 {
                     TablicaNiz.Append(tablica[i, j] + "\t");
                 }
