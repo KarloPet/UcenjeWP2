@@ -280,17 +280,17 @@ namespace WebAPI.Controllers
                 }
             }
 
-            StringBuilder TablicaNiz = new StringBuilder();
+            string TablicaNiz = "";
 
             for (int i = 0; i < Broj1; i++)
             {
                 for (int j = 0; j < Broj2; j++)
                 {
-                    TablicaNiz.Append(tablica[i, j] + "\t");
+                    TablicaNiz += tablica[i, j] + "\t";
                 }
-                TablicaNiz.AppendLine();
+                TablicaNiz += "\n";
             }
-            return TablicaNiz.ToString();
+            return TablicaNiz;
         }
 
 
@@ -372,24 +372,18 @@ namespace WebAPI.Controllers
                     stuPocetak++;
                 }
             }
-
-            StringBuilder sb = new StringBuilder();
+            string res = "";
 
             for (int i = 0; i < redovi; i++)
             {
                 for (int j = 0; j < stupac; j++)
                 {
-                    sb.Append(matrica[i, j] + "\t");
+                    res += matrica[i, j] + "\t";
                 }
-                sb.AppendLine();
+                res += "\n";
             }
 
-            return sb.ToString();
+            return res;
         }
-
-
-
-
-
     }
 }

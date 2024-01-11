@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ukxhuIlzFa/IO6csk8y6YhMoK+6ALpxEOO3uxeGpt8Ezx6IH+Ma9ph2YbBkzSPR5+DgqXK+Qx0AKzG0OYWQMDQ==",
+  "dgSpecHash": "5C/oeeV1cnFT6J+au/Y4F5xKFdlsZIsAQ7Vv5uWSIsf1nJnDqAA1uT9e6qEWOb8pW/A+Jbx/+jO/3demfVqzPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\karlo\\OneDrive\\Dokumenti\\GitHub\\UcenjeWP2\\CSHARP\\Ucenje\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\karlo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.13\\microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",
+    "C:\\Users\\karlo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\karlo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\karlo\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\karlo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
