@@ -19,6 +19,15 @@ using UcenjeCS;
 
 //E09Metode.Izvedi();
 
-Console.WriteLine(Z01Metode.CijeliDioZbroja(3.4,5.8));
+//UcenjeCS.E12KlasaObjekt.Ljubav.Izvedi();
 
-Console.WriteLine();
+//UcenjeCS.E13Nasljedivanje.Program.Izvedi();
+
+//UcenjeCS.E12KlasaObjekt.Program.Izvedi();
+
+//UcenjeCS.E14Polimorfizam.Program.Izvedi();
+
+//new UcenjeCS.E15KonzolnaAplikacija.Program();
+
+new UcenjeCS.Z98KonzolnaApp.Program();
+
