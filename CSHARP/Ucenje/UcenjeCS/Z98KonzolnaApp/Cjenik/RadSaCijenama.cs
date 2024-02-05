@@ -86,9 +86,7 @@ namespace UcenjeCS.Z98KonzolnaApp.Cjenik
         {
             Console.WriteLine("******************************");
             Console.WriteLine("1. Pregledaj cijene po danima");
-            //Console.WriteLine("2. Unesi novu cijenu");
-            //Console.WriteLine("3. Izbriši cijenu");
-            //Console.WriteLine("4. Vrati na prethodnu stranicu");
+            Console.WriteLine("2. Vrati na prethodnu stranicu");
 
             OdabirOpcijaCjenika();
         }
@@ -101,6 +99,10 @@ namespace UcenjeCS.Z98KonzolnaApp.Cjenik
                 case 1:
                     Console.WriteLine("*****Cijene po danima*****");
                     PopisCjenika();
+                    break;
+                case 2:
+                    Console.WriteLine("*****Glavni izbornik*****");
+                    GlavniIzbornik.Izbornik();
                     break;
                 default:
                     Console.BackgroundColor = ConsoleColor.Red;
@@ -133,6 +135,7 @@ namespace UcenjeCS.Z98KonzolnaApp.Cjenik
                 i++;
             }
             Console.WriteLine("**********************************");
+            OdabranoCjenik();
         }
 
         public void IzbrisiCijenu()

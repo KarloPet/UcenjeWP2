@@ -26,7 +26,7 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
 
         public static void OdabranoRezervacija()
         {
-            Console.WriteLine("******************************");
+            Console.WriteLine("*************IZBORNIK*****************");
             Console.WriteLine("1. Pregledaj popis rezervacija");
             Console.WriteLine("2. Unesi rezervaciju");
             Console.WriteLine("3. Izbriši rezervaciju");
@@ -125,6 +125,7 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
                 i++;
             }
             Console.WriteLine("**********************************");
+            OdabranoRezervacija();
         }
 
         public decimal IzracunajUkupnuCijenuRezervacije(Rezervacije rezervacija)
