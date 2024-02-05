@@ -35,7 +35,9 @@ namespace UcenjeCS.Z98KonzolnaApp.Gosti
                     GlavniIzbornik.Izbornik();
                     break;
                 default:
-                    Console.WriteLine("*****Krivi odabir*****");
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Krivi odabir");
+                    Console.ResetColor();
                     Odabrano();
                     break;
 

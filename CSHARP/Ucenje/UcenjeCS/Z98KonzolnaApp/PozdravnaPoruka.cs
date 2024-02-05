@@ -10,10 +10,22 @@ namespace UcenjeCS.Z98KonzolnaApp
     {
         public static void Poruka()
         {
-            Console.WriteLine("**********************************");
-            Console.WriteLine("* BOOKING KONZOLNA APLIKACIJA V1 *");
-            Console.WriteLine("*    made by: Karlo Peterfaj     *");
-            Console.WriteLine("**********************************");
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.WriteLine("*******************************************************************************");
+            Console.WriteLine("██████╗░░█████╗░░█████╗░██╗░░██╗██╗███╗░░██╗░██████╗░  ░█████╗░██████╗░██████╗░");
+            Console.WriteLine("██╔══██╗██╔══██╗██╔══██╗██║░██╔╝██║████╗░██║██╔════╝░  ██╔══██╗██╔══██╗██╔══██╗");
+            Console.WriteLine("██████╦╝██║░░██║██║░░██║█████═╝░██║██╔██╗██║██║░░██╗░  ███████║██████╔╝██████╔╝");
+            Console.WriteLine("██╔══██╗██║░░██║██║░░██║██╔═██╗░██║██║╚████║██║░░╚██╗  ██╔══██║██╔═══╝░██╔═══╝░");
+            Console.WriteLine("██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗██║██║░╚███║╚██████╔╝  ██║░░██║██║░░░░░██║░░░░░");
+            Console.WriteLine("╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚═════╝░  ╚═╝░░╚═╝╚═╝░░░░░╚═╝░░░░░");
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("*******************************************************************************");
+            Console.WriteLine("*********************** BOOKING KONZOLNA APLIKACIJA V1 ************************");
+            Console.WriteLine("***********************     MADE BY: Karlo Peterfaj    ************************");
+            Console.WriteLine("*******************************************************************************");
+            Console.ResetColor();
+
 
             GlavniIzbornik.Izbornik();
 

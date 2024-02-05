@@ -12,10 +12,14 @@ namespace UcenjeCS.Z98KonzolnaApp
                 try
                 {
                     return int.Parse(Console.ReadLine());
+
                 }
                 catch
                 {
+                    Console.BackgroundColor = ConsoleColor.Red;
                     Console.WriteLine("Neispravan unos");
+                    Console.ResetColor();
+
                 }
             }
         }

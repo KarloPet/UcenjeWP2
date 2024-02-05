@@ -4,7 +4,7 @@ namespace UcenjeCS.Z98KonzolnaApp.Gosti
 {
     public class UnosGostiju
     {
-        private List<Gosti> Gost;
+        public List<Gosti> Gost;
 
         public UnosGostiju()
         {
@@ -14,12 +14,11 @@ namespace UcenjeCS.Z98KonzolnaApp.Gosti
         {
             Gost.Add(new Gosti()
             {
-                id = Pomocno2.UcitajInt("Unesi id gosta: "),
+                //id = Pomocno2.UcitajInt("Unesi id gosta: "),
                 ime = Pomocno2.UcitajString("Unesi ime gosta: "),
                 prezime = Pomocno2.UcitajString("Unesi prezime gosta: "),
                 oib = Pomocno2.UcitajString("Unesi OIB gosta: ")
             });
-            RadSaGostima.Odabrano();
         }
         public void PogledajGoste()
         {

@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UcenjeCS.Z98KonzolnaApp.Gosti; // Dodajte ovaj using statement
 
 namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
 {
     internal class Rezervacije
     {
+        public List<Gosti.Gosti> Gosti { get; set; }
+
+        private static int _counter = 0;
         public int id { get; set; }
-        public decimal cijena { get; set; }
+        public decimal cijena { get; }
         public DateTime datum_od { get; set; }
         public DateTime datum_do { get; set; }
+        public Rezervacije()
+        {
+            _counter++;
+            id = _counter;
+        }
     }
 }

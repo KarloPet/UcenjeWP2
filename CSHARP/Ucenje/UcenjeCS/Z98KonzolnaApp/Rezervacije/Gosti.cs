@@ -9,10 +9,16 @@ namespace UcenjeCS.Z98KonzolnaApp.Gosti
 {
     public class Gosti
     {
-        public int id { get; set; }
+        private static int _counter = 0;
+        public int id { get; }
         public string ime { get; set; }
         public string prezime { get; set; }
         public string oib { get; set; }
 
+        public Gosti()
+        {
+            _counter++;
+            id = _counter;
+        }
     }
 }
