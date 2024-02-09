@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using UcenjeCS.Z98KonzolnaApp.Gosti; // Dodajte ovaj using statement
+using UcenjeCS.Z98KonzolnaApp.Gosti;
 
 namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
 {

@@ -24,12 +24,11 @@ namespace UcenjeCS.Z98KonzolnaApp.Cjenik
             DateTime pocetniDatum = new DateTime(2024, 1, 1);
             DateTime krajnjiDatum = new DateTime(2024, 12, 31);
 
-            // Generiranje cjenika za svaki dan od 1.6. do 1.9.
             for (DateTime datum = pocetniDatum; datum < krajnjiDatum; datum = datum.AddDays(1))
             {
                 cjenici.Add(new Cjenik
                 {
-                    id = cjenici.Count + 1, // Automatski dodijeli ID
+                    id = cjenici.Count + 1,
                     datum = datum,
                     cijena = OdrediCijenuZaDatum(datum)
                 });

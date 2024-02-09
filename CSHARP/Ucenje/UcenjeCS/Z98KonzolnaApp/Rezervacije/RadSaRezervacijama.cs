@@ -69,7 +69,7 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
         {
             int BrojGostiju = Pomocno2.UcitajInt("Unesi broj Gostiju na rezervaciji: ");
             Rezervacije novaRezervacija = new Rezervacije();
-            novaRezervacija.Gosti = new List<Gosti.Gosti>(); // Inicijalizacija liste gostiju za novu rezervaciju
+            novaRezervacija.Gosti = new List<Gosti.Gosti>();
 
             for (int i = 0; i < BrojGostiju; i++)
             {
@@ -83,7 +83,6 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
                 {
                     gost.oib = Pomocno2.UcitajString("Unesi OIB gosta: ");
 
-                    // Provjera ispravnosti OIB-a
                     if (!ProvjeriOIB(gost.oib))
                     {
                         Console.WriteLine("Neispravan OIB. Molimo unesite ispravan OIB.");
@@ -136,7 +135,6 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
 
             foreach (var cjenik in radSaCijenama.Cjenici)
             {
-                // Provjeravamo je li trenutni datum cjenika unutar raspona datuma rezervacije
                 if (cjenik.datum >= datumOd && cjenik.datum <= datumDo)
                 {
                     ukupnaCijena += cjenik.cijena;
@@ -148,29 +146,25 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
 
         public void IzbrisiRezervaciju()
         {
-            PogledajRezervacije(); // Prikazuje popis rezervacija radi odabira koju rezervaciju želite obrisati
+            PogledajRezervacije(); 
             int odabranaRezervacijaIndex = Pomocno2.UcitajInt("Odaberi redni broj rezervacije koju želiš obrisati: ") - 1;
 
             if (odabranaRezervacijaIndex >= 0 && odabranaRezervacijaIndex < Rezervacije.Count)
             {
-                // Dohvaćanje rezervacije koju želimo obrisati
                 Rezervacije rezervacijaZaBrisanje = Rezervacije[odabranaRezervacijaIndex];
-
-                // Brisanje svih gostiju koji se nalaze u rezervaciji
                 foreach (var gost in rezervacijaZaBrisanje.Gosti.ToList())
                 {
                     rezervacijaZaBrisanje.Gosti.Remove(gost);
                 }
 
-                // Brisanje same rezervacije
                 Rezervacije.RemoveAt(odabranaRezervacijaIndex);
                 Console.WriteLine("Rezervacija i gosti uspješno obrisani.");
+
             }
             else
             {
                 Console.WriteLine("Pogrešan odabir rezervacije.");
             }
-            OdabranoRezervacija();
         }
         public bool ProvjeriOIB(string oib)
         {
