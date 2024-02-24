@@ -385,5 +385,121 @@ namespace WebAPI.Controllers
 
             return res;
         }
+
+
+        [HttpGet]
+        [Route("Zad14")]
+        public string CiklicnaMatrica2(int redovi, int stupac)
+        {
+            int[,] matrica = new int[redovi, stupac];
+            int brojac = redovi * stupac;
+            int redPocetak = 0;
+            int redKraj = redovi - 1;
+            int stuPocetak = 0;
+            int stuKraj = stupac - 1;
+
+            while (brojac >= 1)
+            {
+
+                // Popunjava desni rub matrice odozgo prema dolje.
+                for (int i = stuKraj; i >= stuPocetak; i--)
+                    matrica[redKraj, i] = brojac--;
+
+                // Popunjava donji rub matrice zdesna ulijevo.
+                for (int i = redKraj - 1; i >= redPocetak; i--)
+                    matrica[i, stuPocetak] = brojac--;
+
+                // Popunjava gornji rub matrice slijeva nadesno.
+                for (int i = stuPocetak + 1; i <= stuKraj; i++)
+                    matrica[redPocetak, i] = brojac--;
+
+                // Popunjava lijevi rub matrice odozdo prema gore.
+                for (int i = redPocetak + 1; i < redKraj; i++)
+                    matrica[i, stuKraj] = brojac--;
+
+
+                redPocetak++;
+                redKraj--;
+                stuPocetak++;
+                stuKraj--;
+            }
+
+            string res = "";
+
+            for (int i = 0; i < redovi; i++)
+            {
+                for (int j = 0; j < stupac; j++)
+                {
+                    res += matrica[i, j] + "\t";
+                }
+                res += "\n";
+            }
+
+            return res;
+        }
+
+        [HttpGet]
+        [Route("Zad15")]
+        public string CiklicnaMatrica3(int redovi, int stupac)
+        {
+            int[,] matrica = new int[redovi, stupac];
+            int brojac = 1;
+            int redPocetak = 0;
+            int redKraj = redovi - 1;
+            int stuPocetak = 0;
+            int stuKraj = stupac - 1;
+
+            while (redPocetak <= redKraj && stuPocetak <= stuKraj)
+            {
+
+                // Popuni lijevi stupac matrice odozgo prema dolje.
+                for (int i = redPocetak; i <= redKraj; i++)
+                    matrica[i, stuPocetak] = brojac++;
+
+                stuPocetak++;
+
+                // Popuni donji redak matrice slijeva nadesno.
+                for (int j = stuPocetak; j <= stuKraj; j++)
+                    matrica[redKraj, j] = brojac++;
+
+                redKraj--;
+
+                // Provjeri i popuni desni stupac matrice odozdo prema gore.
+                if (stuPocetak <= stuKraj)
+                {
+                    for (int i = redKraj; i >= redPocetak; i--)
+                        matrica[i, stuKraj] = brojac++;
+
+                    stuKraj--;
+                }
+
+                // Provjeri i popuni gornji redak matrice slijeva nadesno.
+                if (redPocetak <= redKraj)
+                {
+                    for (int j = stuKraj; j >= stuPocetak; j--)
+                        matrica[redPocetak, j] = brojac++;
+
+                    redPocetak++;
+                }
+            }
+
+            // Generiranje stringa iz matrice
+            string res = "";
+
+            for (int i = 0; i < redovi; i++)
+            {
+                for (int j = 0; j < stupac; j++)
+                {
+                    res += matrica[i, j] + "\t";
+                }
+                res += "\n";
+            }
+
+            return res;
+        }
+
+
+
+
     }
 }

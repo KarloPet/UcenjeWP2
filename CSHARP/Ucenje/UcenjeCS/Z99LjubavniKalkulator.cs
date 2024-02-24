@@ -115,7 +115,6 @@ public class ConsoleSpiner
         counter++;        
         switch (counter % 4)
         {
-
                     case 0:
                         Console.ForegroundColor = ConsoleColor.Yellow; // Boja za <
                         Console.Write("<");
@@ -132,8 +131,6 @@ public class ConsoleSpiner
                         Console.ForegroundColor = ConsoleColor.Magenta; // Boja za v
                         Console.Write("v");
                         break;
-
-
                 }
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
                 Console.ResetColor();
