@@ -483,7 +483,6 @@ namespace WebAPI.Controllers
                 }
             }
 
-            // Generiranje stringa iz matrice
             string res = "";
 
             for (int i = 0; i < redovi; i++)

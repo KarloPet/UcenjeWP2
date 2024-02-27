@@ -68,42 +68,52 @@ namespace UcenjeCS.Z98KonzolnaApp.Rezervacije
         public void DodajNovuRezervaciju()
         {
             int BrojGostiju = Pomocno2.UcitajInt("Unesi broj Gostiju na rezervaciji: ");
-            Rezervacije novaRezervacija = new Rezervacije();
-            novaRezervacija.Gosti = new List<Gosti.Gosti>();
-
-            for (int i = 0; i < BrojGostiju; i++)
+            if (BrojGostiju >= 7)
             {
-                Gosti.Gosti gost = new Gosti.Gosti();
-                bool ispravanOIB = false;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Po jednoj rezervaciji može biti najviše 6 gostiju!");
+                Console.ResetColor();
+                DodajNovuRezervaciju();
+            }
+            else
+            {
+                Rezervacije novaRezervacija = new Rezervacije();
+                novaRezervacija.Gosti = new List<Gosti.Gosti>();
+
+                for (int i = 0; i < BrojGostiju; i++)
+                {
+                    Gosti.Gosti gost = new Gosti.Gosti();
+                    bool ispravanOIB = false;
 
                     gost.ime = Pomocno2.UcitajString("Unesi ime gosta: ");
                     gost.prezime = Pomocno2.UcitajString("Unesi prezime gosta: ");
 
-                while (!ispravanOIB)
-                {
-                    gost.oib = Pomocno2.UcitajString("Unesi OIB gosta: ");
+                    while (!ispravanOIB)
+                    {
+                        gost.oib = Pomocno2.UcitajString("Unesi OIB gosta: ");
 
-                    if (!ProvjeriOIB(gost.oib))
-                    {
-                        Console.WriteLine("Neispravan OIB. Molimo unesite ispravan OIB.");
+                        if (!ProvjeriOIB(gost.oib))
+                        {
+                            Console.WriteLine("Neispravan OIB. Molimo unesite ispravan OIB.");
+                        }
+                        else
+                        {
+                            ispravanOIB = true;
+                        }
                     }
-                    else
-                    {
-                        ispravanOIB = true;
-                    }
+
+
+                    novaRezervacija.Gosti.Add(gost);
                 }
 
+                novaRezervacija.datum_od = Pomocno2.UcitajDateTime("Unesi pocetni datum rezervacije: ");
+                novaRezervacija.datum_do = Pomocno2.UcitajDateTime("Unesi zavrsni datum rezervacije: ");
 
-                novaRezervacija.Gosti.Add(gost);
+                Rezervacije.Add(novaRezervacija);
+
+                Console.WriteLine("**********************************");
+                OdabranoRezervacija();
             }
-
-            novaRezervacija.datum_od = Pomocno2.UcitajDateTime("Unesi pocetni datum rezervacije: ");
-            novaRezervacija.datum_do = Pomocno2.UcitajDateTime("Unesi zavrsni datum rezervacije: ");
-
-            Rezervacije.Add(novaRezervacija);
-
-            Console.WriteLine("**********************************");
-            OdabranoRezervacija();
         }
 
         public void PogledajRezervacije()

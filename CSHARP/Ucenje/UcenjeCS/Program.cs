@@ -29,10 +29,10 @@ using UcenjeCS;
 
 //new UcenjeCS.E15KonzolnaAplikacija.Izbornik();
 
-//new UcenjeCS.Z98KonzolnaApp.Program();
+new UcenjeCS.Z98KonzolnaApp.Program();
 
 
 //new UcenjeCS.E17Delegati.Program();
 
-Z99LjubavniKalkulator.Izvedi();
+//Z99LjubavniKalkulator.Izvedi();
 
